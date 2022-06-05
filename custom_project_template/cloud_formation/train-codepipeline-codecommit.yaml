@@ -778,7 +778,8 @@ Resources:
         detail-type:
           - "SageMaker Model Package State Change"
         detail:
-          ModelPackageGroupName: !Sub 'model-${SageMakerProjectName}'
+          ModelPackageGroupName: 
+            - 'model-${SageMakerProjectName}'
       State: "ENABLED"
       Targets:
         -
@@ -846,6 +847,7 @@ Resources:
          - Name: MODEL_EXECUTION_ROLE_ARN
            Value: !Join [ ':', [ 'arn', !Ref 'AWS::Partition', 'iam:', !Ref 'AWS::AccountId', 'role/service-role/AmazonSageMakerServiceCatalogProductsUseRole'] ]
          - Name: SOURCE_MODEL_PACKAGE_GROUP_NAME
+           Type: PLAINTEXT
            Value: !Sub 'model-${SageMakerProjectName}'
          - Name: AWS_REGION
            Value: !Ref AWS::Region
