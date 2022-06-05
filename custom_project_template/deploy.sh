@@ -13,8 +13,10 @@ do
     esac
 done
 
+sudo yum install -y jq
+
 account_id=$(aws sts get-caller-identity | jq '.Account' -r)
-region=$(aws configure get region)
+region='us-east-1'
 
 aws cloudformation deploy \
   --stack-name train-baseline \
