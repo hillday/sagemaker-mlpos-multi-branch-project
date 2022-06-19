@@ -778,7 +778,7 @@ Resources:
         detail-type:
           - "SageMaker Model Package State Change"
         detail:
-          ModelPackageGroupName: 
+          ModelPackageGroupName: !Sub
             - 'model-${SageMakerProjectName}'
       State: "ENABLED"
       Targets:
